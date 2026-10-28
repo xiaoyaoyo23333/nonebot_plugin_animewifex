@@ -4,10 +4,15 @@
 >
 > 由 AstrBot 插件 [astrbot_plugin_animewifex](https://github.com/monbed/astrbot_plugin_animewifex) 移植而来。
 >
-> 开发过程中使用 Minimax M3.1-Flash-Preview 辅助。
+> **作者**：xiaoyaoyo23333（移植）、 MiniMax Code（AI 辅助移植与维护） 、monbed（原作者）
+>
+> **仓库**：https://github.com/xiaoyaoyo23333/nonebot_plugin_animewifex
 
 群聊里的「二次元老婆」玩法：每天抽一位二次元老婆，支持**牛老婆 / 换老婆 / 交换老婆**等互动。
 本仓库提供两个功能不同的版本，按群风格挑一个装。
+
+> 另有一个**独立仓库**的 Gacha 分支，在 Lite 版基础上加了「十连抽老婆」卡池玩法：
+> [xiaoyaoyo23333/nonebot_plugin_animewifex_gacha](https://github.com/xiaoyaoyo23333/nonebot_plugin_animewifex_gacha)
 
 ---
 
@@ -65,10 +70,8 @@ data/animewifex_lite/img/wife/   ← Lite 版
 文件名建议按 `作品名!角色名.jpg` 命名，机器人会据此播报「来自《作品名》的角色名」；
 没有 `!` 就只报角色名。图库为空时会提示获取失败并记一条 warning。
 
-**图库来源（二选一或自备）：**
-
-1. 原插件配套图库：<https://github.com/monbed/wife>
-2. 本插件配套图库：<https://github.com/xiaoyaoyo23333/wife-x-ver>
+**图库来源（或自备）：**
+ 本插件配套图库：<https://github.com/xiaoyaoyo23333/animewifex_repo_x-ver>
 
 下载后放进 `<数据目录>/img/wife/` 即可。本地图库优先级最高。
 
@@ -97,6 +100,8 @@ ANIMEWIFEX_SWAP_MAX_PER_DAY=2        # 每日交换请求次数
 ANIMEWIFEX_RESET_MAX_USES_PER_DAY=3  # 每日重置机会次数
 ANIMEWIFEX_RESET_SUCCESS_RATE=0.3    # 重置成功率
 ANIMEWIFEX_RESET_MUTE_DURATION=300   # 重置失败禁言秒数
+ANIMEWIFEX_REPLY_DELAY_MIN=2         # 回复前的随机延迟下限（秒）
+ANIMEWIFEX_REPLY_DELAY_MAX=8         # 回复前的随机延迟上限（秒）；设 0 即关闭延迟
 ANIMEWIFEX_TIMEZONE=Asia/Shanghai    # 判定「今天」的时区
 ANIMEWIFEX_COMMAND_PRIORITY=0        # 匹配器优先级
 ANIMEWIFEX_BLOCK_OTHER_PLUGINS=false # 是否独占本插件命令
@@ -179,6 +184,7 @@ ANIMEWIFEX_DATA_DIR=                 # 数据目录，留空则用 <data_dir>/an
 - **零网络依赖**：纯本地图库，不请求外部图床
 - **跨版本兼容**：NoneBot2 2.2 ~ 2.5 通用
 - **不抢别人消息**：严格指令匹配 + `block=False`，与其它插件互不干扰
+- **拟人化回复**：每条回复随机延迟 2-8 秒才发出，不秒回；上限设 0 可关闭
 
 ---
 
@@ -251,8 +257,9 @@ Windows 11 23H2 + Python 3.11.9 实测无差异：插件源码按 Python 3.9+ �
 
 ## 致谢
 
-- 上游 AstrBot 插件：[astrbot_plugin_animewifex](https://github.com/monbed/astrbot_plugin_animewifex)
+- 原作者 monbed：上游 AstrBot 插件 [astrbot_plugin_animewifex](https://github.com/monbed/astrbot_plugin_animewifex)
 - 原版思路：[astrbot_plugin_AW](https://github.com/zgojin/astrbot_plugin_AW)
+- AI 辅助移植与维护：MiniMax Code（[本仓库](https://github.com/xiaoyaoyo23333/nonebot_plugin_animewifex)）
 
 ## License
 
